@@ -17,10 +17,15 @@ socket.on('clients-total', (data) => {
 
 function sendMessage() {
     console.log(messageInput.value);
+    let date = dayjs().format('DD MMMM', 'HH')
+    let hour = dayjs().format('HH:mm')
+    console.log(date);
+    console.log(hour);
+
     const data = {
         name: nameInput.value,
         message: messageInput.value,
-        dateTime: new Date()
+        dateTime: date + " " + hour
     }
 
     socket.emit('message', data);
@@ -38,7 +43,7 @@ function addMessageToUI(isOwnMessage, data) {
         <li class="${isOwnMessage ? "message-right" : "message-left"}">
             <p class="message">
                 ${data.message}
-                <span>${data.name} ● ${dayjs(data.dateTime).format()}</span>
+                <span>${data.name} ● ${data.dateTime}</span>
             </p>
         </li>
     `
