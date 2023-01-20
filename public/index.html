@@ -8,44 +8,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="title">Chat</h1>
+    <div class="container">
 
-    <div class="main">
-        <div class="name">
-            <span><ion-icon name="person-outline"></ion-icon></span>
-            <input type="text" id="name-input" class="name-input" value="anonymous"
-            maxlength="20">
+        <div class="main">
+            <div class="name">
+                <span><ion-icon name="person-add-sharp"></ion-icon></span>
+                <input type="text" id="name-input" class="name-input" value="user"
+                maxlength="20">
+            </div>
+            
+            <ul class="message-container" id="message-container">
+                <li class="message-right">
+                    <p class="message">
+                        Holi!
+                        <span>Dani ● 19 Jan 16:20</span>
+                    </p>
+                </li>
+                <li class="message-left">
+                    <p class="message">
+                        Hola Dani!
+                        <span>Juan ● 19 Jan 16:20</span>
+                    </p>
+                </li>
+            </ul>
+
+            <form class="message-form" id="message-form">
+                <input type="text" name="message" id="message-input" class="message-input">
+
+                <button type="submit" class="send-btn">
+                    <ion-icon name="send-outline"></ion-icon>
+                </button>
+            </form>
         </div>
 
-        <ul class="message-container" id="message-container">
-            <li class="message-left">
-                <p class="message">
-                    Lorem ipsum
-                    <span>bluebird ● 26 July 10:20</span>
-                </p>
-            </li>
-            <li class="message-right">
-                <p class="message">
-                    Lorem ipsum
-                    <span>bluebird ● 26 July 10:20</span>
-                </p>
-            </li>
-
-            <li class="message-feedback">
-                <p class="feedback" id="feedback"> killer is typing a message</p>
-            </li>
-        </ul>
-
-        <form class="message-form" id="message-form">
-            <input type="text" name="message" id="message-input" class="message-input">
-            <div class="v-divider"></div>
-            <button type="submit" class="send-btn">
-                <ion-icon name="send-outline"></ion-icon>
-            </button>
-        </form>
+        <h3 class="clients-total" id="clients-total"></h3>
     </div>
-
-    <h3 class="clients-total" id="clients-total"></h3>
 
     <script src="./socket.io/socket.io.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

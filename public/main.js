@@ -12,7 +12,7 @@ messageForm.addEventListener('submit', (e) => {
 })
 
 socket.on('clients-total', (data) => {
-    clientsTotal.innerHTML = `Total Clients: ${data}`
+    clientsTotal.innerHTML = `Online: ${data}`
 });
 
 function sendMessage() {
@@ -58,13 +58,13 @@ function scrollToBottom() {
 
 messageInput.addEventListener('focus', (e) => {
     socket.emit('feedback', {
-        feedback: `${nameInput.value} is typing a message`
+        feedback: ` ${nameInput.value} is typing a message`
     })
 });
 
 messageInput.addEventListener('keypress', (e) => {
     socket.emit('feedback', {
-        feedback: `${nameInput.value} is typing a message`
+        feedback: ` ${nameInput.value} is typing a message`
     })
 });
 
@@ -78,7 +78,7 @@ socket.on('feedback', (data) => {
     clearFeedback();
     const element = `
         <li class="message-feedback">
-            <p class="feedback" id="feedback">${data.feedback}</p>
+            <p class="feedback" id="feedback"> ${data.feedback}</p>
         </li>
     `
 
